@@ -18,19 +18,20 @@ async def add_degree(deg: float) -> dict:
     degree_list.clear()
     degree_list.append(app.dtDegree)
     return {
-        "message": app.dtDegree
+        "message": dtDegree
     }
 
 @dt_router.post("/dtnews")
 async def add_degree(deg: str) -> dict:
+    global dtDegree
     if deg.__contains__("north") | deg.__contains__("North"):
-        app.dtDegree = 0.0
+        dtDegree = 0.0
     if deg.__contains__("east") | deg.__contains__("East"):
-        app.dtDegree = 90.0
+        dtDegree = 90.0
     if deg.__contains__("west") | deg.__contains__("West"):
-        app.dtDegree = 270.0
+        dtDegree = 270.0
     if deg.__contains__("south") | deg.__contains__("South"):
-        app.dtDegree = 180.0
+        dtDegree = 180.0
 
     degree_list.clear()
     degree_list.append(dtDegree)
