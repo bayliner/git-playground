@@ -16,7 +16,7 @@ async def add_degree(deg: float) -> dict:
     global dtDegree 
     dtDegree = deg
     degree_list.clear()
-    degree_list.append(app.dtDegree)
+    degree_list.append(dtDegree)
     return {
         "message": dtDegree
     }
