@@ -11,6 +11,16 @@ class DtStatus(BaseModel):
 
 dtStatus = DtStatus
 
+@dt_router.get("/dtdegree/{dt_degree}")
+async def add_degree(dt_degree: float) -> dict:
+    global dtDegree 
+    dtDegree = dt_degree
+    degree_list.clear()
+    degree_list.append(dtDegree)
+    return {
+        "message": dtDegree
+    }
+
 @dt_router.post("/dtdegree")
 async def add_degree(deg: float) -> dict:
     global dtDegree 
