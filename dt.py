@@ -58,7 +58,7 @@ async def add_degree(deg: str) -> dict:
 
 @dt_router.get("/dtstatus")
 async def get_dt() -> dict:
-    # dtStatus.deg = 7.77
+    global dtStatus
     return {
         "degree": dtStatus.deg
     }
