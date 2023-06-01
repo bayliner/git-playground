@@ -20,7 +20,7 @@ dtStatus = DtStatus
 
 @dt_router.get("/dtdegree/{dt_degree}")
 async def add_degree(dt_degree: float) -> dict:
-    global dtDegree 
+    global dtDegree
     dtDegree = dt_degree
     degree_list.clear()
     degree_list.append(dtDegree)
@@ -30,7 +30,7 @@ async def add_degree(dt_degree: float) -> dict:
 
 @dt_router.post("/dtdegree")
 async def add_degree(deg: float) -> dict:
-    global dtDegree 
+    global dtDegree
     dtDegree = deg
     degree_list.clear()
     degree_list.append(dtDegree)
@@ -69,6 +69,7 @@ async def get_dt() -> dict:
 
 @dt_router.post("/dtstatus")
 async def add_degree(status: DtStatus) -> dict:
+    global dtStatus
     dtStatus = status
     return {
         "message": dtStatus.deg
