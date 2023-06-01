@@ -9,6 +9,13 @@ degree_list = []
 class DtStatus(BaseModel):
     deg: float
 
+    class Config:
+        schema_extra = {
+            "example": {
+                "deg": 12.34,
+            }
+        }
+
 dtStatus = DtStatus
 
 @dt_router.get("/dtdegree/{dt_degree}")
@@ -49,12 +56,20 @@ async def add_degree(deg: str) -> dict:
         "message": dtDegree
     }
 
-@dt_router.get("/dtstatus/")
+@dt_router.get("/dtstatus")
 async def get_dt() -> dict:
+    # dtStatus.deg = 7.77
     return {
-        "degree": dtDegree
+        "degree": dtStatus.deg
     }
     # raise HTTPException(
     #     status_code=status.HTTP_404_NOT_FOUND,
     #     detail="Todo woth supplied ID doesn't exist"
     # )
+
+@dt_router.post("/dtstatus")
+async def add_degree(status: DtStatus) -> dict:
+    dtStatus = status
+    return {
+        "message": dtStatus.deg
+    }
