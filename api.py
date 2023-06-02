@@ -3,6 +3,7 @@ from typing import Optional
 from pydantic import BaseModel
 from todo import todo_router
 from dt import dt_router
+from bert import bert_router
 from typing_extensions import Annotated
 
 app = FastAPI()
@@ -45,3 +46,4 @@ async def create_upload_file(file: UploadFile):
 
 app.include_router(todo_router)
 app.include_router(dt_router)
+app.include_router(bert_router)
